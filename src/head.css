@@ -1,0 +1,10 @@
+button{
+    width: 452px;
+    color: white;
+    background-color: black;
+
+}
+
+form{
+    display: flex;
+}

@@ -1,25 +1,71 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Head from './Head';
 
 function App() {
+const [items,setitems] = useState()
+
+const showusers = async ()=>{
+  const url ='https://jsonplaceholder.typicode.com/users'
+  try{
+    const response = await fetch(url)
+    
+    const list = await response.json()
+    console.log(list)
+    setitems(list)
+    
+  }
+  catch(err){
+    console.log(err.Message)
+    
+  }
+
+}
+
+const showpost = async ()=>{
+  const url ='https://jsonplaceholder.typicode.com/posts'
+  try{
+    const response = await fetch(url)
+    
+    const list = await response.json()
+    console.log(list)
+    setitems(list)
+    
+  }
+  catch(err){
+    console.log(err.Message)
+    
+  }
+
+}
+
+
+const showcomments = async ()=>{
+  const url ='https://jsonplaceholder.typicode.com/comments'
+  try{
+    const response = await fetch(url)
+    
+    const list = await response.json()
+    console.log(list)
+    setitems(list)
+    
+  }
+  catch(err){
+    console.log(err.Message)
+    
+  }
+
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Head
+    showusers={showusers}
+    showpost={showpost}
+    showcomments={showcomments}
+    items ={items}
+    />
+  )
 }
 
 export default App;
